@@ -87,12 +87,15 @@ private fun RequestPermissionUsingAccompanist() {
     PermissionRequired(
         permissionState = permissionState,
         permissionNotAvailableContent = {
+            // Permission を拒否し、表示しないを押したときの View
             Text("Permission Denied.")
         }, permissionNotGrantedContent = {
+            // Permission の許可を促すときの View
             Button(onClick = { permissionState.launchPermissionRequest() }) {
                 Text("Request permission.")
             }
         }, content = {
+            // Permission が許可されたときの View
             Text("Permission Granted.")
         }
     )
